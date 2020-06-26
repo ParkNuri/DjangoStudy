@@ -1,0 +1,41 @@
+<p>data a : {{data_a}}</p>
+<p>data b : {{data_b}}</p>
+
+<hr>
+
+{% for data in my_list%}
+<h4>{{ data }}</h4>
+{% endfor %}
+
+<hr>
+
+{% for data in my_list %}
+{% if data == 10 %}
+<p>your got lowest score</p>
+{% elif data == 100 %}
+<p>your got highest score</p>
+{% else %}
+<p>your score : {{ data }}</p>
+{% endif %}
+{% endfor %}
+<hr>
+
+{% if 5 >= my_string|length %}
+<p>short!</p>
+{% elif my_string|length >= 10 %}
+<p>long!</p>
+{% else %}
+<p>적당~</p>
+{% endif %}
+
+<hr>
+
+{% for data in my_list %}
+{% if data >= 90 %}
+<p>A</p>
+{% elif data >= 50 %}
+<p>B</p>
+{% else %}
+<p>C</p>
+{% endif %}
+{% endfor %}

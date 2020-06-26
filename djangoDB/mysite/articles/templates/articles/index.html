@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+  <h1>게시판</h1>
+  <hr>
+  <a href="{% url 'articles:new' %}">NEW</a>
+  <a href="{% url 'articles:introduce' %}">introduce</a>
+  <hr>
+  {% for article in articles %}
+    <h3>{{ article.pk }}번 째 글</h3>
+    <h4>제목 : {{ article.title }}</h4>
+    <a href="{% url 'articles:detail' article.pk %}">[DETAIL]</a>
+    <hr>
+  {% endfor %}
+{% endblock %}

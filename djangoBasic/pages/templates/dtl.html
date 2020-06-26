@@ -1,0 +1,43 @@
+<h1>{{today}}</h1>
+<h1>for문</h1>
+{% for food in my_list %}
+<p>{{forloop.counter}}.{{food}}</p>
+{% endfor %}
+<hr>
+<!-- empty 를 이용해 list가 비어있는지 확인 가능-->
+{% for data in empty_list %}
+<p>data</p>
+{% empty %}
+<p>비어있습니다.</p>
+{% endfor %}
+
+<h2>조건문</h2>
+{% for food in my_list%}
+{% if forloop.first %}
+{{ forloop.first }}
+{{ forloop.last }}
+<p>짜장면엔 고춧가루지</p>
+{% else %}
+<p>{{food}}</p>
+{% endif %}
+{% endfor %}
+
+<hr>
+<h2>filter 활용</h2>
+<p>{{ my_string|lower }}</p>
+<p>{{ my_string|upper }}</p>
+<p>{{ my_string|title }}</p>
+<p>{{ my_string|length }}</p>
+<p>{{ my_string|truncatewords:3 }}</p>
+<!-- truncatechars: ... 까지 count에 포함-->
+<p>{{ my_string|truncatechars:3 }}</p>
+<hr>
+<h2>lorem ipsum</h2>
+<!-- dtl에 이미 lorem ipsum이 정의되어있음 -->
+{% lorem %}
+<!-- 3 w : 세 단어만 출력-->
+<!-- 3 p : 세 문단만 출력-->
+<hr>
+{% lorem 3 w %}
+{% lorem 3 p %}
+<br><br><br><br><br><br><br><br><br><br><br><br>

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>글 작성 완료</h1>
+<hr>
+<h2>제목: {{ article.title }}</h2>
+<p>본문: {{ article.content }}</p>
+<h2>hi</h2>
+<hr>
+<a href="{% url 'articles:index' %}">back</a>
+{% end body %}

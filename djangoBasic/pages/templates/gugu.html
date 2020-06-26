@@ -1,0 +1,11 @@
+<h1>{{context.list}}</h1>
+{# 이것도 주석 #}
+{% comment %}
+여기도 주석
+여러줄 주석
+{% endcomment %}
+<!--django template language (DTL) %-->
+<!-- for문 -->
+{% for num in context.list %}
+<p>{{num}}</p>
+{% endfor %}

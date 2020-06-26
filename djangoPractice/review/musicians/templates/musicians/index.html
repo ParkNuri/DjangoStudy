@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <style>
+    .box {
+      width: 150px;
+      height: 150px;
+      border-radius: 70%;
+      overflow: hidden;
+    }
+
+    .profile {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>메인 페이지</h1>
+  <hr>
+  
+    {% for musician in musicians %}
+    <div style="display: inline-block;">
+      <a href="{% url 'musicians:detail' musician.pk %}">
+        <div>
+          <div class="box">
+            <img class="profile" src="{{ musician.img }}" alt="no_img">
+          </div>
+          <div>
+            {{ musician.name }} ({{ musician.age }})
+          </div>
+        </div>
+      </a>
+    </div>  
+    {% endfor%}
+  
+  <hr>
+  <div>
+    <a href="{% url 'musicians:create' %}"><button>글 작성</button></a>
+  </div>
+</body>
+
+</html>

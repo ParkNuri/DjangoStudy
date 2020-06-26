@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>상세 페이지</h1>
+<hr>
+<h2>{{ article.pk }}번째 글</h2>
+<h2>{{ article.title }}</h2>
+<h2>{{ article.content }}</h2>
+<hr>
+<a href="{% url 'articles:update' article.pk %}"><button>[ UPDATE ]</button></a>
+<a href="{% url 'articles:index' %}"> <button>[ BACK ]</button></a>
+{% endblock %}

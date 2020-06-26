@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="{% url 'jobs:your_champ' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="이름을 알려주세요!">
+</form>
+<hr>
+{% for person in persons %}
+    {{ person.name }}님의 직업 : {{ person.past_job }}
+    <br>
+{% endfor %}
+<hr>
+<form action="{% url 'jobs:delete' %}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="[DELETE]">
+</form>
+{% endblock %}

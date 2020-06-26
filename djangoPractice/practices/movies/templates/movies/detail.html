@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-4 bg-white">
+        
+        <h3>{{ movie.title }}</h3>
+        <h5>{{ movie.title_en }}</h5>
+        {{ movie.score }}
+
+    </div>
+    <div class="col-sm-4 bg-white">
+        <img src="{{ movie.poster_url }}" alt="" height="300">
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<br><br><br>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 bg-white">
+
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>개봉일</th>
+                    <td>{{ movie.open_date }}</td>
+                </tr>
+                <tr>
+                    <th>장르</th>
+                    <td>{{ movie.genre }}</td>
+                </tr>
+                <tr>
+                    <td>등급</td>
+                    <td>{{ movie.watch_grade }}</td>
+                </tr>
+                <tr>
+                    <th>흥행</th>
+                    <td>{{ movie.audience }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 bg-white">
+        <hr>
+        <br>
+        <p style="text-align: justify;">{{ movie.description }}</p>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+
+<div class="row">
+    
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 bg-white">
+        <hr>
+        <br>
+        <a href="{% url 'movies:list' %}"><button class="btn btn-light">목록</button></a>
+        <a href="{% url 'movies:update' movie.pk %}"><button class="btn btn-light">수정</button></a>
+        <a href="{% url 'movies:delete' movie.pk %}"><button class="btn btn-danger">삭제</button></a>
+    </div>
+    <div class="col-sm-2"></div>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

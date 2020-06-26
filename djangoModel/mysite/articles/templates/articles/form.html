@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block body %}
+{% if request.resolver_match.url_name == 'create' %}
+    <h1>글 생성</h1>
+    <hr>
+{% else %}
+    <h1>글 수정</h1>
+    <hr>
+{% endif %}
+<form action="" method="POST" class="form">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <!--as_p : 각 데이터를 p태그로 묶어주는-->
+    <!--{{ form.as_p }}-->
+    {% buttons %}
+      <button type="submit" class="btn btn-primary">
+        Submit
+      </button>
+    {% endbuttons %}
+</form>
+{% buttons %}
+    <a href="{% url 'articles:index' %}"><button class="btn btn-primary">뒤로가기</button></a>
+{% endbuttons %}
+{% endblock%}

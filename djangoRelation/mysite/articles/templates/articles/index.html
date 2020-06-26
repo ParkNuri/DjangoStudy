@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>메인 페이지 입니다.</h1>
+<hr>
+<a href="{% url 'articles:create' %}">[CREATE]</a>
+<hr>
+<ul class="list-group">
+    {% for article in articles %}
+    <!-- <p>{{ article.pk }}번째 글</p>
+ <p>{{ article.title }}</p> -->
+    <li class="list-group-item">
+        <span>{{ article.id }}</span> 
+        <a href="{% url 'articles:detail' article.id %}"><b>{{ article.title }}</b></a> ({{ article.comment_cnt }})
+        <!-- {{ article.comment_set.count }} -->
+        <!-- {{ article.comment_set.all|length }} -->
+
+        
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if request.resolver_match.url_name == 'signup' %}
+    <input type="submit" value="회원가입">
+  {% elseif request.resolver_match.url_name == 'update' %}
+  <input type="submit" value="수정">
+  {% elseif request.resolver_match.url_name == 'password' %}
+    <input type="submit" value="비밀번호 수정">
+  {% endif %}  
+</form>
+{% endblock %}

@@ -1,0 +1,14 @@
+<!-- 좋아요만 담당하는 코드 -->
+{# dtl은 () 생략#}
+<p>추천 개수: {{ article.recommand_users.all|length }} </p>
+<p>좋아요 개수: {{ article.like_users.all|length }}</p>
+{% if user in article.recommand_users.all %}
+<a href="{% url 'articles:recommand' article.pk %}"><i class="far fa-thumbs-up"></i></a>
+{% else %}
+<a href="{% url 'articles:recommand' article.pk %}"><i class="fas fa-thumbs-up"></i></a>
+{% endif %}
+{% if user in article.like_users.all %}
+<a href="{% url 'articles:like' article.pk %}"><i class="far fa-heart" style="color: tomato;"></i></a>
+{% else %}
+<a href="{% url 'articles:like' article.pk %}"><i class="fas fa-heart" style="color: tomato;"></i></a>
+{% endif %}

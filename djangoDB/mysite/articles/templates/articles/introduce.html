@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block body %}
+<h1>Introduce</h1>
+<form action="{% url 'articles:introduce' %}">
+    <p>이름 : </p>
+    <input type="text" id="name">
+    <p>나이 : </p>
+    <input type="text" id="age">
+</form> 
+
+<a href="{% url 'articles:index' %}">back</a>
+{% endblock %}
